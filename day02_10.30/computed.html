@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model.number="n">
+        +
+        <input type="text" v-model.number="m">
+        <button @click="handleClick()">计算</button>
+        <p>{{sum}}</p>
+        <p>computed：{{count}}</p>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+/* 
+计算属性：通过属性计算而得来的属性
+computed:计算属性依赖于data中的属性，当data中的属性发生了改变，那么计算属性的方法就会执行，
+另外如果computed里面所依赖的属性没有发生改变，则不会调用computed里面的方法，而是将缓存中的值进行了返回
+
+1.计算属性里面的方法在调用的时候不需要加()
+2.计算属性里面的方法需要有一个return返回数据
+3.千万不要在计算属性中给data中的某个属性做赋值操作
+
+使用场景：
+    当一个属性需要依赖多个属性的时候就需要用到computed(购物车 || 计算)
+ */
+
+ //全局的写法
+//  Vue.computed("count",()=>{
+//      return this.n+this.m;
+//  })
+let vm=new Vue({
+    el:"#app",
+    data:{
+        n:"",
+        m:"",
+        sum:""
+    },
+    methods:{
+        handleClick(){
+            this.sum=this.n+this.m;
+        }
+    },
+    computed:{
+        // count(){
+        //     console.log("computed");
+        //     return this.n+this.m;
+        // }
+    }
+})
+</script>

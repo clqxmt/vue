@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{goods.name}}</p>
+        <p>{{goods.price}}</p>
+        <button @click="handleAdd()">+</button>
+        <input type="text" v-model="goods.num">
+        <button @click="handleReduce()">-</button>
+        <p>运费{{goods.fre}}</p>
+        <p>小计：{{count}}</p>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        goods:{
+            name:"三只松鼠",
+            price:19.9,
+            fre:10,
+            num:1
+        }
+    },
+    methods:{
+        handleReduce(){
+            if(this.goods.num===1){
+                this.goods.num=1;
+            }else{
+                this.goods.num--;
+            }
+        },
+        handleAdd(){
+            this.goods.num++;
+        }
+    },
+    computed:{
+        count(){
+            let money=((this.goods.price*10)*this.goods.num)/10;
+            console.log(this.goods.price,this.goods.num);
+            if(money>=99){
+                return money;
+            }else{
+                return money+this.goods.fre;
+            }
+            
+        }
+    }
+})
+</script>

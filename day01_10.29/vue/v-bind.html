@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .big{
+            width:100px;
+            height:100px;
+            background:#f00;
+        }
+        .small{
+            width:100px;
+            height:100px;
+            background:#ff0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="myClass"></div>
+        <img v-bind:src="urlImg" alt="">
+        <a :href="path">百度</a>
+        <div :title="myTitle"></div>
+        <div :calss="arrClass"></div><!-- <div calss="box1,box2,box3"></div> -->
+        
+        <div :class="objClass"></div><!-- <div class="box1 box3"></div> -->
+        
+        <div :class="n==0?'small':'big'"></div><!-- <div class="big"></div> -->
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        myClass:"active",
+        urlImg:"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png",
+        path:"http://www.baidu.com",
+        myTitle:"盒子",
+        arrClass:["box1","box2","box3"],
+        objClass:{
+            "box1":true,
+            "box2":false,
+            "box3":true
+        },
+        n:1
+    }
+})
+
+/* 
+v-bind:绑定属性
+    简写方式：:属性
+
+*/
+</script>

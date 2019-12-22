@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input,select{
+            margin-bottom:10px;
+
+        }
+        #app ul{
+            width: 500px;
+            height:300px;
+            /* background:#f00; */
+        }
+        a{
+            text-decoration:none;
+            float:left;
+            color:#000;
+        }
+        span{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <form @submit="handleSubmit($event)">
+            <label>新闻标题：</label>
+            <input type="text" v-model="title"><br>
+            <label>新闻地址：</label>
+            <input type="text" v-model="url"><br>
+            <label>新闻类别：</label>
+            <select v-model="category">
+                <option value="科技">科技</option>
+                <option value="娱乐">娱乐</option>
+                <option value="财经">财经</option>
+            </select><br>
+            <label>是否标红：</label>
+            <input type="radio" v-model="isRed" value="true">
+            <label>是</label>
+            <input type="radio" v-model="isRed" value="">
+            <label>否</label><br>
+            <input type="submit">
+        </form>
+        <hr>
+        <button v-for="(item,index) in tabList"  @click="handleClick(index)" v-cloak>{{item.title}}</button>
+        
+        <hr>
+        <ul v-for="(item,index) in tabList" v-show="showIndex==index">
+            <li v-for="item in tabList[index].content" v-style="item.isRed && bc" >
+                <a href="" v-cloak>{{item.title}}</a>
+                <span v-cloak>{{item.time}}</span>
+            </li>
+        </ul>
+        
+        
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+Vue.directive("style",(el,{value})=>{
+    var str="";
+    for(var k in value){
+        str+=`${k}:${value[k]}`;
+    }
+    el.style.cssText=str;
+})
+let vm=new Vue({
+    el:"#app",
+    data:{
+        title:"",
+        url:"",
+        category:"科技",
+        isRed:"",
+        createLi:"",
+        tabList:[
+            {
+                title:"科技",
+                content:[],
+            },
+            {
+                title:"娱乐",
+                content:[],
+            },
+            {
+                title:"财经",
+                content:[],
+            }
+        ],
+        showIndex:0,
+        bc:{
+            background:"#f00"
+        }
+    },
+    methods:{
+        handleSubmit(e){
+            e.preventDefault();
+            var _date=new Date();
+            // // var _time=_date.getTime();
+            var _year=_date.getFullYear();
+            var _month=(_date.getMonth()+1)>=10?(_date.getMonth()+1):("0"+(_date.getMonth()+1));
+            var _ri=_date.getDate();
+            var _day=_date.getDay();
+            var _hours=_date.getHours()>=10?(_date.getHours()):("0"+_date.getHours());
+            var _minutes=_date.getMinutes()>=10?(_date.getMinutes()):("0"+_date.getMinutes());
+            var _seconds=_date.getSeconds()>=10?(_date.getSeconds()):("0"+_date.getSeconds());
+            var _time=_year+"-"+_month+"-"+_ri+" "+_hours+":"+_minutes+":"+_seconds;
+            for(var i=0;i<this.tabList.length;i++){
+                if(this.tabList[i].title===this.category){
+                    this.tabList[i].content.push({title:this.title,isRed:this.isRed,time:_time});
+                    break;
+                }
+            }
+        },
+        handleClick(index){
+            this.showIndex=index;
+        }
+    }
+})
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- item表示遍历出来的每个元素 -->
+        <div v-for="item in arr" :key="index">{{item}}</div>
+        <div v-for="item in obj">{{item}}</div>
+        <!-- 
+            10
+            20
+            30
+            40
+            Alley
+            20
+         -->
+         <!-- index是下标 -->
+         <div v-for="(item,index) in arr">{{item}}---{{index}}</div>
+         <div v-for="(item,index) in obj">{{item}}---{{index}}</div>
+         <!-- 
+             10---0
+            20---1
+            30---2
+            40---3
+            Alley---username
+            20---age
+          -->
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        arr:[10,20,30,40],
+        obj:{
+            username:"Alley",
+            age:20
+        }
+    }
+})
+</script>

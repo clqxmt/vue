@@ -1,0 +1,53 @@
+<template>
+    <div>
+        <Header></Header>
+        <div class="page movie">
+            <h2>movie</h2>
+        </div>
+    </div>
+</template>
+<script>
+import Header from "@components/header"
+export default{
+    name:"Movie",
+    components:{
+        Header,
+    },
+    beforeCreate(){
+        console.log("beforwCreate----Movie");
+    },
+    created(){
+        console.log("created---Movie");
+    },
+    beforeMount(){
+        console.log("beforeMount----Movie");
+    },
+    Mounted(){
+        console.log("mounted----Movie");
+    },
+    beforeUpdate(){
+        console.log("beforeUpdate---Movie");
+    },
+    Updated(){
+        console.log("updated---Movie");
+    },
+    activated(){
+        console.log("activated---Movie");
+    },
+    deactivated(){
+        console.log("deactivated---Movie");
+    },
+    beforeDestroy(){
+        console.log("beforeDestory---Movie");
+    },
+    destroyed(){
+        console.log("destroyed----Movie");
+    }
+}
+</script>
+<style scoped>
+.page{
+    background:#f00;
+    height:100%;
+}
+</style>

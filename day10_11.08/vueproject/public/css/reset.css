@@ -1,0 +1,33 @@
+@charset "utf-8";
+html,body,div,p,span,li,ol,ul,h1,h2,h3,h4,h5,h6,dl,dt,dd,form,fieldset,legend,img{
+    margin:0;
+    padding:0;
+    color: #262626;
+    font-size: 0.1167rem;
+    font-family: PingFang SC,Lantinghei SC,Roboto,Helvetica Neue,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans;
+}
+img{
+    border:none;
+}
+ul,ol,li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+i,em{
+    font-style:normal;
+}
+strong,b{
+    font-weight:bold;
+}
+html{
+    font-size:32vw;
+}
+body,html{
+    height:100%;
+    font-family:PingFang SC,Lantinghei SC,Roboto,Helvetica Neue,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans;
+}
+body{
+    font-size:16px;
+}

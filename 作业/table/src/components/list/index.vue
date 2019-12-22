@@ -1,0 +1,69 @@
+<template>
+    <div>
+       <ul>
+           <li v-for="(item,index) in list" :key="index" @click="handleColor(index)" 
+           :class="showIndex==index?'active':''">
+               <p>{{item.name}}</p>
+               <p>{{item.age}}</p>
+               <p>{{item.sign}}</p>
+               <button @click="handleUpdate(index)">修改</button>
+               <button @click="handleDel(index)">删除</button>
+           </li>
+       </ul> 
+    </div>
+</template>
+<script>
+export default{
+    name:"List",
+    data(){
+        return{
+            list:[],
+            showIndex:-1,
+        }
+    },
+    created(){
+        if(localStorage.getItem("person")){
+            let storage=JSON.parse(localStorage.getItem("person"));
+            this.list=storage;
+        }
+        this.$observer.$on("Add",(params)=>{
+            this.list.push({
+                name:params.name,
+                age:params.age,
+                sign:params.sign
+            })
+        });
+        localStorage.setItem("person",JSON.stringify(this.list));
+        this.$observer.$on("modify",(params)=>{
+            this.list[this.showIndex].name=params.name,
+            this.list[this.showIndex].age=params.age,
+            this.list[this.showIndex].sign=params.sign
+        })
+    },
+    methods:{
+        handleColor(index){
+            this.showIndex=index;
+        },
+        handleUpdate(index){
+            this.$emit("listShow","true");
+            this.$observer.$emit("update",{
+                name:this.list[index].name,
+                age:this.list[index].age,
+                sign:this.list[index].sign,
+            })
+        },
+        handleDel(index){
+            this.list.splice(index,1);
+        }
+    },
+   
+}
+</script>
+<style>
+li{
+    background:#fff;
+}
+.active{
+    background:#999;
+}
+</style>

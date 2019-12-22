@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleClick()">点击</button>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        arr:[10,20,30,40]
+    },
+    methods:{
+        handleClick(){
+            // this.$set(this.arr,0,100);
+            this.arr.splice(0,this.arr.length);
+        }
+    },
+    watch:{
+        arr(newVal){
+            console.log("数组发生了改变",newVal);
+            /* 
+                this.$set(this.arr,0,100);执行的时候输出的数组是[100,20,30,40]
+                this.arr.splice(0,this.arr.length);执行的时候输出的数组是[]
+             */
+        }
+    }
+})
+</script>

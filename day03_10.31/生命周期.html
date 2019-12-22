@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span id="h2">{{message}}</span>
+        <button @click="handleClick()">更新</button>
+        
+    </div>
+    <button onclick="handleDestory()">销毁</button>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:"1917"
+    },
+    methods:{
+        handleClick(){
+            this.message=2000;
+        }
+    },
+    beforeCreate(){
+        console.log("beforeCreate");
+    },
+    created(){
+        console.log("created");
+    },
+    beforeMount(){
+        console.log("beforeMount");
+        console.log(h2.innerText);//{{message}}
+        this.message=1000;
+    },
+    mounted(){
+        console.log("mounted");
+        console.log(h2.innerText);//1000
+    },
+    //beforeUpdate在内容发生变化的时候才会触发
+    beforeUpdate(){
+        console.log("beforeUpdate");
+        this.message=3000000000;//当this.message发生变化时,这里语句才会执行
+        console.log(h2.offsetWidth);//此时获取到的元素宽度还是元素内容更新之前的宽度
+    },
+    updated(){
+        console.log("updated");
+        console.log(h2.offsetWidth);//此时获取到的元素宽度是元素内容改变后的宽度
+    },
+    boforeDestroy(){
+        console.log("beforeDestroy");
+    },
+    destroyed(){
+        console.log("destroyed");
+    }
+})
+function handleDestory(){
+    vm.$destroy();
+}
+/* 
+
+
+
+*/
+</script>

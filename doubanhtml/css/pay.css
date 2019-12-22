@@ -1,0 +1,233 @@
+body {
+  background-color: #f9f9f9; }
+
+header {
+  margin-bottom: 10px; }
+  header .address {
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-bottom: 1px solid #f9f9f9;
+    border-color: #f9f9f9; }
+  header .addAddress {
+    padding: 30px 0;
+    background-color: #fff;
+    color: #dd1944;
+    text-align: center; }
+    header .addAddress a {
+      color: #d8d8d8; }
+      header .addAddress a i {
+        font-size: 21px;
+        display: block;
+        line-height: 1;
+        color: #6e6e6e;
+        margin-bottom: 10px; }
+      header .addAddress a span {
+        font-size: 15px;
+        color: #dd1944; }
+
+section {
+  margin-bottom: 10px; }
+  section .title {
+    padding: 15px;
+    border-bottom: 1px solid #f9f9f9;
+    border-color: #f9f9f9;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9); }
+  section .main {
+    background-color: #fff;
+    padding: 15px;
+    border-width: .5px;
+    border-color: #f9f9f9;
+    position: relative; }
+    section .main .book {
+      display: flex;
+      position: relative;
+      z-index: 1; }
+      section .main .book .book-img {
+        width: 80px;
+        height: 80px;
+        display: block; }
+        section .main .book .book-img img {
+          width: 100%;
+          height: 100%;
+          display: block; }
+      section .main .book .book-info {
+        padding-left: 20px;
+        flex: 1; }
+        section .main .book .book-info .name {
+          font-size: 14px;
+          margin-bottom: 6px; }
+          section .main .book .book-info .name a {
+            color: rgba(0, 0, 0, 0.9); }
+        section .main .book .book-info p {
+          font-size: 12px;
+          color: #6e6e6e;
+          max-width: 70%;
+          margin-right: 8px; }
+    section .main .price {
+      font-size: 14px;
+      position: absolute;
+      right: 15px;
+      bottom: 5px;
+      color: rgba(0, 0, 0, 0.9);
+      font-weight: 500; }
+  section .count-info {
+    padding: 0 15px;
+    background-color: #fff; }
+    section .count-info .coupon, section .count-info .subtotal, section .count-info .fare {
+      font-size: 14px;
+      line-height: 20px;
+      clear: both;
+      color: rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+      padding: 10px 15px;
+      border-bottom: 1px solid #f9f9f9;
+      border-color: #f9f9f9; }
+      section .count-info .coupon span, section .count-info .subtotal span, section .count-info .fare span {
+        float: left; }
+      section .count-info .coupon em, section .count-info .subtotal em, section .count-info .fare em {
+        float: right;
+        white-space: nowrap;
+        color: rgba(0, 0, 0, 0.9); }
+  section .bill {
+    padding: 0 15px;
+    margin-top: 10px; }
+    section .bill .bill-open {
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(0, 0, 0, 0.9);
+      clear: both;
+      overflow: hidden;
+      padding: 10px 15px;
+      border-bottom: 1px solid #f9f9f9;
+      border-color: #f9f9f9;
+      background-color: #fff; }
+      section .bill .bill-open .bill-open-left {
+        float: left; }
+        section .bill .bill-open .bill-open-left i {
+          border-width: 1px;
+          font-size: 13px;
+          line-height: 13px;
+          height: 13px;
+          width: 13px;
+          margin-top: -1px;
+          margin-right: 5px;
+          border-style: solid;
+          border-color: #8fb88b;
+          background-color: #fff;
+          color: #fff;
+          display: inline-block;
+          vertical-align: middle;
+          text-align: center;
+          position: relative; }
+      section .bill .bill-open .rightArrow {
+        float: right;
+        white-space: nowrap; }
+    section .bill .contact {
+      display: block;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.9);
+      background-color: #fff;
+      padding: 10px 15px; }
+
+.pay-method {
+  margin-top: 10px;
+  overflow: hidden;
+  margin-bottom: 60px; }
+  .pay-method h3 {
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: #fff;
+    border-bottom: 1px solid #f9f9f9;
+    border-color: #f9f9f9; }
+  .pay-method ul {
+    padding-bottom: 10px; }
+    .pay-method ul .pay-item {
+      padding: 8px 30px 8px 15px;
+      background-color: #fff;
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid #f9f9f9;
+      border-color: #f9f9f9; }
+      .pay-method ul .pay-item i {
+        margin-right: 5px;
+        height: 22px;
+        width: 22px;
+        display: inline-block;
+        vertical-align: middle;
+        background-size: cover;
+        background-position: 50%;
+        background-repeat: no-repeat; }
+      .pay-method ul .pay-item .pay-text {
+        display: inline-block;
+        vertical-align: middle; }
+      .pay-method ul .pay-item .switch-btn {
+        right: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 20%;
+        border-width: 1px;
+        height: 15px;
+        width: 15px;
+        border-style: solid;
+        background-color: #fff;
+        border-radius: 100%;
+        display: inline-block;
+        vertical-align: middle; }
+    .pay-method ul .pay-weixin .weixin-logo {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAxVJREFUSA2tVU1IVFEUPue9GTHxJ4qghVJQKeVCM2c0mhknI12EDoIuolUFBi0CcyVFDUWbkha5rNy0qMDFOEmkRplTZCbZojHTQEjMaBES/sDMe/d07sw8Z57j0ywvPO659zvne/d+59x7Ebg1hZsyZr9OtQFgAwIUE5FNzm+wRRHxEyB1qTnZNweODmgoiX9MToUIwLlBMkt3/sngzvrd1eq22qzL7HXK0vPfgF0LE3PzipTi3+LXiSJssMU0tvJDnEECqaPGiyjkXOxhV17Q+o0Qim2rJY81ewaktIZ878ZSabzdh/dqoHPixWkg4HWt0Qjs6AqUcy6TjYmvh3zvryRn0i1Pd/kZQXCXkTV2gUsmEAF7B+uHr0o6V8B5yR1w3DKoXUHnSR53yfGgb6QTEDsMzKo3kfMW2nnl8Z0gTKCC40YgkvINET7KcX33kRyV8JWBWfUmWTJUe/6LurczVs5VPU63roNDJZhCVf2sA+Qi6QcFUQsQFZnjcMl0EoWi7WCHVcndgYpGoePsa9/QbTMJDDePNHeOfx9tF4IupGImWYROjamgYXt6HQUKkB7yDb3xPq3Il/pLzE9+xRV0nJ/+Oa1U151o4frpN2JkbyInwlb3k8qyVIeYHUF3UX5pj7RRE3lKvN4hPBa2MUFR1B7N9KNfKIj3UmNNmseCAeZUVI4P+IZHDEdP0HmWq+i+MbbqPT2V+4WmJc7GCs1lEJfKVl1RRFXA2SAQ9ikEk5ywQzW9NY/6avsWrIjlvBCiNBU3JTQBREjonTpQifwTV0Tsj4tLczLRNxI+ad2x587tkXnyx+s4Dps0T0RkcFmVpEWDuMbynJNJXIl5X3qzIwvUT0CFyxiClqb5Mmhh8EH6wKsLIqlhApHDF0yBDelxlHCUt7glGYa/pCxR/uzJybUtIpDVVEZxwaRyoAG2IZCWKgmXZZSrh5+m/2x8s2YycbaJhmBWkW+eaXKzBogPFPmY8tEIbRZnjIdPqi03607swuds2/Tfixc52/LJO8BC/nUOlhfFGjPZFyB8qOZldcjX/w9dUyFtxcmSmgAAAABJRU5ErkJggg==); }
+    .pay-method ul .pay-weixin .switch-btn:after {
+      content: "";
+      margin-top: -4.5px;
+      margin-left: -4.5px;
+      height: 9px;
+      width: 9px;
+      background-color: #44883e;
+      border-radius: 100%;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      z-index: 1; }
+    .pay-method ul .pay-zhifubao .zhifubao-logo {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAzVJREFUOBGtVV1IVFEQnjn3qoVu/myyalAIWyIUFPXQaxSlFYi1ChE9FIFIEAg9BAUF9RD1UhRERfUQFa39IElUVPQSUVEPiUS5FVmtbe2mpIuJe8/0HfHq3W5uBh24d+7M+eabOTPnnMuEEb6VmpVO0wFNUk/EYRJhY5/2YBYiiTGp20WFsje2NviDDengkDwHSXjaRLmBsUARL1VDaT74H0lNyLDhVEK6LncCKA5TJylabh4mTv4NbzjtsZoSSpRjCHEsEQk+MZBQe3L0L3CgOGz7GsXUg1bEs+Iwx1wdGT9Go4KubiRaXYVg8ydsaD4yzh4gvaeUdddrVVreujrmz7CyZri6kVo7q7HmSWLYfMQAtDraafU6OsxHobcZm2Y5R9qp9M7/6dtHbEDMajee+64D207C/bYtq15rznN10ZmdSGaLq7uSQ9Gkr3M4HcOoW8YF+aTQzUTz7M3GXhFNdQnJwt8xvozRnO/E1I1mjABchNZUQ4a8jor4gtErrydrdcZPauYmiZkHLOEdC8pLow9XcFa2866lK0edkRWob4MI1cabyu6YMy8O78Lb8PjGRCksZTU65PSx5jZA58HxM9DvcP67yqjkRnczD3m953YOlI4MZz6AN+C1u99jxCB5YSu1NSP6KTIqcCc9coiZozbbhz5Fintce02HBAZH+9drkUbUuc4bRBkQGvXKIVk5BamBFGEVy/K189UoVdHvc4183cCD8UjZ5S9NweZAYbCclVqHPXUaPeobLwU/slTedkdGu3ASJ+tuvDGwogdiF2xKbAh8rbya2qg1XYH5mSI53NIU7NjPrMeA4y/ByXOJNVtqleXon+jaEVyvSzBnGtilSJ1qaSq5aJxDV1PbQHESy873EOEepmNSHDyfWMNp186h9hTud0Qg+oZD0RaPlF5CPbNaPSfav9ghvQeEEdfRJ7GrzHHHVjwRby7rBXHyDYo+cc6xj98Ly0sW9RHVr0CEGshFPqIpDexg6qxtfie4PyeIkVU1AlXDNqVr7gmxsPIRZf5RAMZyg/9hFtdu/ky1T5kfn/lHIcpxtL8HN1BWfadFCR9TQqz+RJ7kLe9dX9L/C2T+One1JOIVAAAAAElFTkSuQmCC); }
+
+.account {
+  bottom: 0;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  transition: all .8s ease-out;
+  background-color: #fff;
+  padding-left: 15px;
+  box-sizing: border-box;
+  display: flex;
+  height: 46px;
+  line-height: 46px;
+  color: rgba(0, 0, 0, 0.9); }
+  .account .account-money {
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.9);
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1; }
+    .account .account-money span em {
+      color: #dd1944; }
+  .account .address {
+    font-size: 15px;
+    background-color: #d8d8d8;
+    width: 120px;
+    line-height: 45px;
+    display: block;
+    text-align: center;
+    color: #fff; }

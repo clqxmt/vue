@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <p>{{message}}</p>
+        <hr>
+        <label>男</label>
+        <input type="radio" v-model="radioVal" value="男">
+        <label>女</label>
+        <input type="radio" v-model="radioVal" value="女">
+        <p>{{radioVal}}</p>
+        <hr>
+        <label>唱歌</label>
+        <input type="checkbox" value="唱歌" v-model="checkVal">
+        <label>跳舞</label>
+        <input type="checkbox" value="跳舞" v-model="checkVal">
+        <label>看电视</label>
+        <input type="checkbox" value="看电视" v-model="checkVal">
+        <label>看书</label>
+        <input type="checkbox" value="看书" v-model="checkVal">
+        <p v-for="(item,index) in checkVal">{{item}}</p>
+
+        <hr>
+        <select v-model="selectVal" value="">
+            <option value="北京">北京</option>
+            <option value="安阳">安阳</option>
+            <option value="上海">上海</option>
+        </select>
+        <p>{{selectVal}}</p>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:"1917",
+        radioVal:"男",
+        checkVal:[],
+        selectVal:"北京"
+    }
+})
+</script>

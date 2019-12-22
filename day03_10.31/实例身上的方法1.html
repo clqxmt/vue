@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span id="msg">{{message}}</span>
+        <div >年龄：{{obj.age}}</div>
+        <button @click="handleClick()">改变年龄</button>
+        <button @click="handleModify()">更改message</button>
+    </div>
+    <button onclick="handleMount()">点击挂载</button>
+    <button onclick="handleUpdate()">强制更新</button>
+    <button onclick="handleDestroy()">销毁</button>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+    /* 
+        vm.$mount:外部挂载
+
+        vm.$forceUpdate:强制更新
+
+        vm.$nextTick:获取到数据更新后最新的DOM结构
+            注意：this.$nextTick是同步的，但它的回调是异步的
+
+        vm.$destroy:销毁
+
+        注意：Vue的数据更新是异步的
+    
+    */
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:1917,
+        obj:{
+            username:"abc"
+        }
+    },
+    beforeMount(){
+        this.obj.age=20;
+    },
+    methods:{
+        handleClick(){
+            this.obj.age=100;//改变不了
+        },
+        handleModify(){
+            this.message=100000000000000;
+            console.log(msg.offsetWidth);//获取不到span标签中内容更新后的自身宽度
+
+            this.$nextTick(()=>{
+                console.log(msg.offsetWidth);//可以获取到更新后的标签的宽度
+            })
+        }
+    }
+})
+function handleMount(){
+    vm.$mount("#app");
+}
+
+function handleUpdate(){
+    vm.$forceUpdate();//可以改变
+}
+
+function handleDestroy(){
+    vm.$destroy();
+}
+</script>

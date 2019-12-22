@@ -1,0 +1,50 @@
+<template>
+    <div id="footer">
+        <ul>
+            <router-link v-for="item in list"
+                :to="item.path"
+                tag="li"
+            >
+            <span>{{item.text}}</span>
+            </router-link>
+        </ul>
+    </div>
+</template>
+<script>
+export default{
+    name:"TabBar",
+    data(){
+        return{
+            list:[
+                {
+                    text:"电影",
+                    path:"/movie"
+                },
+                {
+                    text:"影院",
+                    path:"/cinema"
+                },{
+                    text:"我的",
+                    path:"/mine"
+                }
+            ]
+        }
+    }
+}
+</script>
+<style>
+#footer{
+    height:0.8333rem;
+    width:100%;
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+#footer ul{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+</style>

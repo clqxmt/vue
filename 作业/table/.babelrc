@@ -1,0 +1,14 @@
+{
+    //通过@babel/preset-env的格式编译所有的js文件，】
+    //把文件编译到浏览器最后2个版本
+    "presets":[
+        [
+            "@babel/preset-env",//将代码从ES6转为ES5
+            {
+                "targets":{
+                    "browsers":["last 2 version"]
+                }
+            }
+        ]
+    ]
+}

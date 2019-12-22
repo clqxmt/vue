@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-cloak>{{message}}</div>
+        <div v-pre>{{message}}</div>
+        <h3 v-once>{{message}}</h3>
+        <button @click="handleClick">点击</button>
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+/* 
+v-pre:不解析数据，同时{{}}作用失效  有转义的作用
+v-cloak:解决{{}}加载过程中Vue.js没有加载进来会显示的问题
+v-once:数据只解析一次
+
+*/
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:1917
+    },
+    methods:{
+        handleClick(){
+            this.message=1910
+        }
+    }
+})
+
+</script>

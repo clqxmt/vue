@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <div v-html="message"></div>
+        <div v-html="message.slice(2)"></div>
+        <div v-html="arr[1]"></div>
+        <!-- 
+            输出
+            <h2>1917</h2>
+            1917
+            2>1917
+            20
+         -->
+
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:"<h2>1917</h2>",
+        arr:[10,20,30,40]
+    }
+})
+
+/* 
+v-html:解析数据
+    与v-text的作用一样，只不过v-html可以解析HTML标签，v-text不能
+    底层原理：
+        innerHtml
+
+*/
+</script>

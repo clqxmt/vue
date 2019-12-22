@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            background:#f00;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class="myClass" v-events.x="flag"></div>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+    // Vue.directive("flag",(el,{value})=>{
+    //     console.log(value)
+    // })
+    
+    Vue.directive("events",(el,{value,modifiers})=>{
+        
+        el.addEventListener("mousedown",down);
+           function down(e){
+             var _x=e.offsetX;
+             var _y=e.offsetY;
+
+             document.addEventListener("mousemove",move);
+                function move(e){
+                    var left=e.clientX-_x+"px";
+                    var top=e.clientY-_y+"px";
+                    let {x,y}=modifiers;
+                    if(value){
+                        if(x && !y){
+                            // console.log(left);
+                            el.style.left=left;
+                        }else if(y && !x){
+                            el.style.top=top;
+                        }else{
+                            el.style.left=left;
+                            el.style.top=top;
+                        }
+                        
+                    }
+                }
+                document.addEventListener("mouseup",up);
+                function up(){
+                    document.removeEventListener("mousemove",move);
+                    document.removeEventListener("mouseup",up);
+                }
+           
+           }
+         
+            
+       
+        
+    })
+let vm=new Vue({
+    el:"#app",
+    data:{
+        myClass:"box",
+        flag:true,
+    }
+})
+console.log(vm);
+</script>

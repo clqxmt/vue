@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{message | filterData(12)}}</div>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+/* 
+filter：过滤
+    专门用来过滤数据
+    全局语法：Vue.filter(过滤器名称，过滤器实现的函数)
+    过滤器实现的函数
+        参数1：需要过滤的数据
+
+    全局过滤必须要在实例化之前
+
+    如何使用：{{属性 | 过滤器}}
+
+    局部语法：filters:{
+                过滤器名称(){}
+            }
+    
+ */
+
+ //全局过滤
+ Vue.filter("filterData",(value,params)=>{
+     return value.split("").reverse().join("")+params;
+ })
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:"1917"
+    },
+    filters:{
+        // filterData(value,params){
+        //     return value.split("").reverse().join("")+params;
+        // }
+    }
+})
+</script>

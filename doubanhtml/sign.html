@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录注册</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+<body>
+    <header>
+        <a href="" class="iconfont icon-cha cancel"></a>
+        <h3>登录豆瓣</h3>
+        <p>新手机号将自动注册，请详读
+            <a href="https://accounts.douban.com/passport/agreement">豆瓣使用协议、隐私政策</a>
+        </p>
+    </header>
+    <section>
+        <div class="main">
+            <!-- <div class="from">
+                <div class="from-phone"></div>
+                <div></div>
+            </div> -->
+            
+            <div class="sign">
+                <form action="">
+                    <input type="text" placeholder="手机号 / 邮箱" class="sign">
+                    <input type="password" placeholder="密码" class="password">
+                </form>
+                <button>登录</button>
+                <div class="sign-method">
+                    <div class="sign-switch">
+                        <a href="" class="nopassword">免密码登录</a>
+                        <a href="" class="sign-abroad">海外手机登录</a>
+                    </div>
+                    <a href="" class="findPassword">找回密码</a>
+                </div>
+            </div>
+            <div class="sign-three">
+                <p>第三方登录</p>
+                <div class="sign-three-switch">
+                    <a class="iconfont 
+                     weixin" href="https://www.douban.com/accounts/weixin"></a>
+                    <a class="iconfont icon-unie61d weibo" href="${ACCOUNTS_DOUBAN}/connect/sina_weibo/?from=None&amp;redir=${redir}&amp;fallback="></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

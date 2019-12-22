@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        ul{
+            width:500px;
+            height:100%;
+            margin:0 auto;
+            display:flex;
+            justify-content: content;
+            padding-top:100px;
+        }
+        li{
+            list-style:none;
+            /* float:left; */
+            width:100px;
+            height:30px;
+            border:1px solid #e5e5e5;
+            text-align:center;
+            font-size:14px;
+            line-height:30px;
+            color:#333;
+            cursor: pointer;
+        }
+        .tab{
+            background:#eee;
+        }
+        .active{
+            background:#fff;
+            color:#f00;
+        }
+        p{
+            width:500px;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in list" @click="handleClick(index)" :class="activeIndex==index?'active':''">{{item.title}}</li>
+            
+        </ul>
+        <p>{{message}}</p>
+        
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            activeIndex:0,
+            list:[
+                {
+                    title:"新闻一",
+                    content:"内容一"
+                },
+                {
+                    title:"新闻二",
+                    content:"内容二"
+                },
+                {
+                    title:"新闻三",
+                    content:"内容三"
+                }
+            ],
+            message:"",
+            myClass:""
+        },
+        methods:{
+            handleClick(index){
+                this.message=this.list[index].content;
+                this.activeIndex=index;
+            }
+        }
+    })
+</script>

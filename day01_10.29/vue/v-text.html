@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <h3>{{h3}}</h3>
+        <h3>{{message.slice(2)}}</h3>
+        <h3>{{arr[0]}}</h3>
+        <h3>{{1+1}}</h3>
+        <h3>{{obj.username}}</h3>
+        <hr>
+        
+        <h5 v-text="message"></h5>
+        <h5 v-text="h3"></h5>
+        <h5 v-text="message.slice(2)"></h5>
+        <h5 v-text="arr[0]"></h5>
+        <h5 v-text="1+1"></h5>
+        <h5 v-text="obj.username"></h5>
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    //挂载点 Vue作用的范围
+    el:"#app",
+
+    //当前Vue所需要的一些数据(当前组件所需要的一些状态)
+    data:{
+        message:"1917",
+        h3:"<h3>1917</h3>",
+        arr:[10,20,30,40],
+        obj:{
+            username:"Alley"
+        }
+    }
+
+
+    /* 
+        v-text:简写{{}}
+            作用：用来解析Vue中data里面的属性
+            底层原理：innerText
+            v-text的值可以书写任意JS表达式
+
+            {{}}加载过程中当Vue.js没有加载进来的时候会显示
+            v-text是没有任何影响的
+    */
+})
+</script>

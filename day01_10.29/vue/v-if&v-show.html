@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            background:red;
+        }
+        .box1{
+            width:200px;
+            height:200px;
+            background:red;
+        }
+        .small{
+            width:100px;
+            height:100px;
+            background:#ff0;
+        }
+        .small1{
+            width:200px;
+            height:200px;
+            background:#ff0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box" v-if="flag"></div>
+        <div class="box1"></div>
+        <div class="small" v-show="flag"></div>
+        <div class="small1"></div>
+        <p v-if="n==1">1</p>
+        <p v-else-if="n==2">2</p>
+        <p v-else>3</p>
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        flag:false,
+        n:3
+    }
+})
+
+
+/* 
+v-if:判断  显示隐藏
+    当值为true时显示
+    当值为false时不显示，如果作用在元素身上，当前元素会被移除掉
+
+    如果使用了v-else-if、v-else的时候前面的代码中必须有v-if
+
+v-show:判断 显示隐藏
+    当值为true的时候显示
+    当值为false的时候不显示，
+    如果作用在元素身上，当前元素会通过display:none将当前元素隐藏
+
+
+二者的使用场景？二者性能谁更好一些
+    v-show：如果需要展示的内容不是特别重要的时候可以使用
+    v-if:如果需要展示的内容比较重要的时候使用
+
+    相比较来说v-show比较好一些，因为v-if会使元素经历销毁 创建 插入操作
+    而v-show则是操作元素display属性
+
+*/
+</script>

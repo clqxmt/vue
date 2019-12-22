@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <boot-nav></boot-nav>
+        <boot-nav></boot-nav>
+    </div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+    var header ={
+        template:`
+            <div id="nav">
+                <ul>
+                    <li v-for="item in navs" @click="handleClick()">{{item}}</li>
+                </ul>
+            </div>
+        `,
+        data(){
+            return{
+                navs:["首页","关于我们","产品介绍"]
+            }
+        },
+        methods:{
+            handleClick(){
+                alert(1);
+            }
+        }
+    }
+let vm=new Vue({
+    el:"#app",
+    components:{
+        "boot-nav":header
+    }
+})
+</script>

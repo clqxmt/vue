@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #big{
+            width:200px;
+            height:200px;
+            background:#f00;
+        }
+        #small{
+            width:100px;
+            height:100px;
+            background:#ff0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background:#00f;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <button v-on:click="handleClick">点击</button>
+        <button v-on:dblclick="handleClick">双击</button>
+        <hr>
+        <div id="big" @click.once="handleBig()">
+            <div id="small" @click.stop="handleSmall()"></div>
+        </div>
+        <div id="box" @contextmenu.prevent="handleMenu()"></div>
+        <input type="text" @keydown.13="handleKeyDown($event)">
+        <input type="text" @keydown.enter="handleEnter()">
+    </div>
+</body>
+</html>
+<script src="../../vue.js"></script>
+<script>
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:1917
+    },
+    methods:{
+        handleClick(){
+            this.message=1918
+        },
+        handleBig(){
+            console.log("big");
+        },
+        handleSmall(){
+            console.log("small");
+        },
+        handleMenu(){
+            console.log("右击");
+        },
+        handleKeyDown(e){
+           console.log("13");
+        },
+        handleEnter(){
+            console.log("enter");
+        }
+    }
+})
+
+
+/* 
+v-on:绑定事件 简写：@事件名称
+    语法：v-on:事件名称 = 事件函数
+
+    如果需要使用事件对象的情况下需要在函数中传入$event
+
+
+    修饰符：
+        作用：辅助事件的一些操作。
+        语法：@事件名称.修饰符
+
+        常见的修饰符：
+            .stop:阻止冒泡
+            .once:事件只执行一次
+            .prevent:阻止默认事件
+            .enter:按下回车
+            .数字:数字是keycode值
+
+当new Vue在去做实例化的时候，它会遍历data和methods中的属性和方法
+将data中所有的参数和methods中所有的方法挂载到Vue的实例身上
+
+在函数中可以直接通过this拿到data中的属性
+*/
+</script>

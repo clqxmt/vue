@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch</title>
+</head>
+<body>
+    <div id="app">
+            <input type="text" v-model="n">
+            <input type="text" v-model="m">
+            <hr>
+            <input type="text" v-model="obj.username">
+            <input type="text" v-model="obj.age">
+    </div>
+    
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+/* 
+watch:属性监听
+    watch属性监听依赖于data中的属性。当data中的属性发生改变时，watch中对应函数就会去执行
+
+
+    1.watch中的函数名称必须是data中的属性名称
+    2.watch中的函数不需要调用
+    3.watch中的函数会有两个参数，一个是新值，一个是旧值
+    4.watch中的监听对于对象而言，只监听对象的索引是否发生了改变，而不监听对象中的值是否发生了改变
+    5.如果想要监听引用数据类型的值是否发生了改变，需要使用深度监听(handler配合deep)
+    6.我们可以对对象中的某一个值单独监听，"对象.属性"
+    7.immediate可以帮助我们在页面加载进来的时候做一次监听
+    8.watch可以用来监听路由的变化
+
+    使用的场景：
+        当一个属性影响多个属性的时候就需要用到watch(浏览器尺寸发生变化 || 搜索框+Ajax查询)
+ */
+let vm=new Vue({
+    el:"#app",
+    data:{
+        n:"",
+        m:"",
+        obj:{
+            username:"",
+            age:"",
+        }
+    },
+    watch:{
+        n(newVal,oldVal){
+            console.log("n发生了改变",newVal,oldVal);
+        },
+        m(newVal,oldVal){
+            console.log("m发生了变化",newVal,oldVal);
+        },
+        obj:{
+            handler(newVal){
+                console.log("obj发生了改变",newVal);
+            },
+            deep:true,
+            immediate:true   //在页面加载进来的时候就做一次监听
+        },
+        "obj.username"(newVal,oldVal){
+            console.log("obj.username被改变了",newVal,oldVal);
+        }
+    }
+})
+</script>

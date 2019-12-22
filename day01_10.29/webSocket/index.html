@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="btn">发送</button>
+    <ul id="list"></ul>
+</body>
+</html>
+<script>
+//连接socket
+const client=new webSocket("ws://127.0.0.1:3000");
+
+//向服务器发送信息
+btn.onclick=function(){
+    let val=input.value;
+    client.send(val);
+    input.value="";
+}
+
+//接收服务端的消息
+client.onmessage=function(data){
+    console.log(data);
+    var li=document.createElement("li");
+    li.innerText=data.data;
+    list.appendChild(li);
+}
+</script>
